@@ -29,7 +29,7 @@ This project contains the HTML and CSS code for a responsive landing page, which
     ```
 2. Navigate to the project directory:
     ```bash
-    cd LEVEL 1
+    cd LEVEL1
     cd TASK01
     cd Landing Page
     ```
