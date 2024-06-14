@@ -32,10 +32,10 @@ You only need a web browser to run this project.
     cd Calculator
     ```
 
-3. Open the `index.html` file in your web browser:
+3. Open the `calculator.html` file in your web browser:
 
     ```bash
-    open index.html
+    open calculator.html
     ```
 
 ## Usage
