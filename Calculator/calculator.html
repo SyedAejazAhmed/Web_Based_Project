@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div id="display" class="display">0</div>
+        <div class="buttons">
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn operator" data-value="/">÷</button>
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn operator" data-value="*">×</button>
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn operator" data-value="-">-</button>
+            <button class="btn" data-value="00">00</button>
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn operator" data-value="+">+</button>
+            <button class="btn" id="clear" data-value="clear">AC</button>
+            <button class="btn operator" id="equals" data-value="equals">=</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+        const buttons = Array.from(document.getElementsByClassName('btn'));
+        let currentInput = '0';
+        let firstOperand = null;
+        let secondOperand = null;
+        let operator = null;
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.getAttribute('data-value');
+                handleInput(value);
+            });
+        });
+        
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+            if (!isNaN(key) || key === '.') {
+                handleInput(key);
+            } else if (key === 'Enter') {
+                handleInput('equals');
+            } else if (key === 'Escape') {
+                handleInput('clear');
+            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                handleInput(key);
+            }
+        });
+
+        function handleInput(value) {
+            if (!isNaN(value) || value === '.') {
+                handleNumber(value);
+            } else if (value === 'clear') {
+                clearDisplay();
+            } else if (value === 'equals' || value === 'Enter') {
+                calculate();
+            } else {
+                handleOperator(value);
+            }
+
+            updateDisplay();
+        }
+
+        function handleNumber(num) {
+            if (currentInput === '0' && num !== '.') {
+                currentInput = num;
+            } else {
+                currentInput += num;
+            }
+        }
+
+        function handleOperator(op) {
+            if (operator !== null) {
+                calculate();
+            }
+            firstOperand = parseFloat(currentInput);
+            operator = op;
+            currentInput = '0';
+        }
+
+        function calculate() {
+            secondOperand = parseFloat(currentInput);
+            if (operator && !isNaN(firstOperand) && !isNaN(secondOperand)) {
+                switch (operator) {
+                    case '+':
+                        currentInput = (firstOperand + secondOperand).toString();
+                        break;
+                    case '-':
+                        currentInput = (firstOperand - secondOperand).toString();
+                        break;
+                    case '*':
+                        currentInput = (firstOperand * secondOperand).toString();
+                        break;
+                    case '/':
+                        if (secondOperand === 0) {
+                            currentInput = 'Error';
+                        } else {
+                            currentInput = (firstOperand / secondOperand).toString();
+                        }
+                        break;
+                }
+            }
+            operator = null;
+            firstOperand = null;
+            secondOperand = null;
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            firstOperand = null;
+            secondOperand = null;
+            operator = null;
+        }
+
+        function updateDisplay() {
+            display.textContent = currentInput;
+        }
+    </script>
+</body>
+</html>
