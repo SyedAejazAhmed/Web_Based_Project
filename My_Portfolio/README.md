@@ -25,19 +25,6 @@ The `resume.py` script generates a resume in PDF format using the FPDF library. 
 - **CSS**
 - **FPDF (Python)**
 
-### Social Media Reputation Monitoring (Technologies Used)
-
-- **Python**
-- **Twitter API/Facebook Graph API**
-- **Natural Language Processing (NLP) libraries (NLTK, spaCy)**
-- **Pandas**
-- **Matplotlib/Seaborn**
-- **Flask/Django**
-- **HTML/CSS/JavaScript**
-- **Bootstrap**
-- **SQLite/MySQL**
-- **Heroku/AWS**
-
 ## Getting Started
 
 ### Prerequisites
