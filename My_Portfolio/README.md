@@ -15,15 +15,14 @@ The portfolio website is built using HTML and CSS and includes the following sec
 - **Contact**: Displays your contact information, such as email address and phone number.
 - **Footer**: Contains a copyright notice and additional links or information.
 
-### Resume Generator
-
-The `resume.py` script generates a resume in PDF format using the FPDF library. It includes sections for contact information, objective, skills, experience, education, certifications, projects, and references.
-
 ## Technologies Used
 
 - **HTML**
 - **CSS**
-- **FPDF (Python)**
+- **FLASK (Python)**
+
+## Resume
+Edit the `resume.pdf` script to customize the content of your resume. Update sections such as contact information, objective, skills, experience, education, certifications, projects, and references with your personal details.
 
 ## Getting Started
 
@@ -45,23 +44,19 @@ Make sure you have Python installed on your machine. You can download it from [p
 
 3. Install the required Python libraries:
     ```bash
-    pip install fpdf
+    pip install flask
     ```
-
-### Running the Resume Generator
-
-To generate the resume PDF, run the `resume.py` script:
-
-```bash
-python resume.py
-```
+4. Run the Program:
+   ```bash
+   python app.py
+   ```
 
 ## Usage
 ### Portfolio Website
 Open the `index.html` file in your web browser to view your personal portfolio website.
 
-## Resume Generator
-Edit the `resume.py` script to customize the content of your resume. Update sections such as contact information, objective, skills, experience, education, certifications, projects, and references with your personal details.
+## Resume
+Edit the `resume.pdf` script to customize the content of your resume. Update sections such as contact information, objective, skills, experience, education, certifications, projects, and references with your personal details.
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
