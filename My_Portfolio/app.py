@@ -8,4 +8,4 @@ def home():
 
 if __name__ == '__main__':
     # Replace '0.0.0.0' with your IPv4 address if you prefer
-    app.run(host='192.168.1.10', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
