@@ -1,2 +1,2 @@
-pip install flask
-pip install fpdf
+Flask==2.3.2
+Gunicorn==20.1.0
